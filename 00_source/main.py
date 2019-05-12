@@ -9,6 +9,8 @@ import numpy
 from win32 import win32gui
 import numpy
 
+def get_angle(p1, p2):
+    return math.atan2(p1[1] - p2[1], p1[0] - p2[0]) * 180/math.pi
 
 def windowEnumerationHandler(hwnd, top_windows):
     top_windows.append((hwnd, win32gui.GetWindowText(hwnd)))
@@ -60,6 +62,7 @@ try:
             #imgScreen = cv2.cvtColor(imgScreen, cv2.COLOR_BGRA2RGB)
 
             wScreen, hScreen = imgScreenGray.shape[::-1]
+            centerScreen = (int(wScreen/2),int(hScreen/2))
             images =[];
             images.append( {"name": 'screen', "imageGray": imgScreenGray, "image": imgScreen, "w": wScreen, "h": hScreen})
 
@@ -75,6 +78,26 @@ try:
             ]
 
             listOfCardsNames =['A','K','Q','J','10','9','8','7','6','5','4','3','2'];
+
+            # determine position of the button
+            templateButton = cv2.imread('../01_templates/' + 'button.png', 0)
+            w, h = templateButton.shape[::-1]
+            res = cv2.matchTemplate(images[0]["imageGray"], templateButton, cv2.TM_CCOEFF_NORMED)
+
+            threshold = 0.80
+            loc = numpy.where(res >= threshold)
+            button = centerScreen;
+            for i, pt in enumerate(zip(*loc[::-1])):
+                cv2.circle(imgScreen, (pt[0]+int(w/2),pt[1]+int(h/2)), 10, [0,0,255], thickness=1, lineType=8, shift=0)
+                button = pt;
+
+            if(button == centerScreen):
+                print('Not button fgound')
+
+            angleButton= get_angle(centerScreen, button)
+            print(angleButton)
+            angleMapping = [ 30, 88,  140, -171, -106, -35]
+            minInd, minval = numpy.abs(numpy.min(angleMapping-angleButton))
             for i, name in enumerate(listOfCardsNames):
                 template = cv2.imread('../01_templates/'+name+'card.png', 0)
                 w, h = template.shape[::-1]

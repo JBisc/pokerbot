@@ -21,6 +21,9 @@ try:
 
     time.sleep(1);
 
+    ##Debug mode
+    debugMode=True;
+
     while (True):
         # gtawin = win32gui.FindWindow(None,"War")
         name = [];
@@ -88,7 +91,7 @@ try:
             loc = numpy.where(res >= threshold)
             button = centerScreen;
             for i, pt in enumerate(zip(*loc[::-1])):
-                cv2.circle(imgScreen, (pt[0]+int(w/2),pt[1]+int(h/2)), 10, [0,0,255], thickness=1, lineType=8, shift=0)
+                cv2.circle(imgScreen, (pt[0]+int(w/2),pt[1]+int(h/2)), 10, [0,0,255], thickness=3, lineType=8, shift=0)
                 button = pt;
 
             if(button == centerScreen):
@@ -96,8 +99,13 @@ try:
 
             angleButton= get_angle(centerScreen, button)
             print(angleButton)
-            angleMapping = [ 30, 88,  140, -171, -106, -35]
-            minInd, minval = numpy.abs(numpy.min(angleMapping-angleButton))
+
+            angleMapping = numpy.array([ 30, 88,  140, -171, -106, -35])
+            diffAngles = angleMapping;
+            diffAngles[:] = [x - angleButton for x in angleMapping]
+            diff=numpy.abs(angleMapping - angleButton)
+            indMinAngle = numpy.unravel_index(numpy.argmin(diff, axis=None), diff.shape);
+            playerWithButton= indMinAngle
             for i, name in enumerate(listOfCardsNames):
                 template = cv2.imread('../01_templates/'+name+'card.png', 0)
                 w, h = template.shape[::-1]
@@ -106,7 +114,13 @@ try:
             # check if templates can be found in the image
             for template in templates:
                 res= cv2.matchTemplate(images[0]["imageGray"], template["image"], cv2.TM_CCOEFF_NORMED)
-                threshold = 0.90
+                threshold = 0.85
+                if(template["name"] =='10'):
+                    threshold = 0.75
+                else:
+                    threshold = 0.87
+
+
                 loc = numpy.where(res >= threshold)
                 #trough double detetcions away
                 for i, pt in enumerate(zip(*loc[::-1])):
@@ -167,6 +181,15 @@ try:
             # plot i figure
             for i, fi in enumerate(allFindings):
                 # loop over the boundaries
+
+
+                # draw a red rectangle surrounding Adrian in the image
+                # along with the text "PyImageSearch" at the top-left
+                # corner
+                #cv2.rectangle(imgScreen, (pt[0]-10, pt[1]+10), (pt[0]+50, pt[1]-90), (255, 255, 255), -1)
+
+
+
                 pt = fi["pt"]
                 cv2.rectangle(imgScreen, pt, (pt[0] + template["w"], pt[1] + template["h"]), (0, 0, 255), 2)
                 cv2.putText(imgScreen, str(fi["template"]), (pt[0], pt[1]-10), font, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
@@ -174,11 +197,10 @@ try:
 
 
             # Display the picture
-            imshowImage = cv2.imshow(windowName,
-            cv2.resize(imgScreen, None, fx=1, fy=1, interpolation=cv2.INTER_CUBIC))
-            # Display the picture in grayscale
-            # cv2.imshow('OpenCV/Numpy grayscale',
-            #            cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY))
+            if(debugMode):
+                imshowImage = cv2.imshow(windowName,
+                cv2.resize(imgScreen, None, fx=0.7, fy=0.7, interpolation=cv2.INTER_CUBIC))
+
 
             # Press "q" to quit
             buttonPress = cv2.waitKey(100);

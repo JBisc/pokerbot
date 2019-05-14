@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4479c3e9-62ab-4a56-82a9-dcab9b029a0e" name="Default Changelist" comment="" />
+    <list default="true" id="4479c3e9-62ab-4a56-82a9-dcab9b029a0e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00_source/preflop_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/00_source/preflop_read.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,11 +15,11 @@
     <favorites_list name="pokerbot" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/00_source/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
+            <state relative-caret-position="1734">
               <caret line="111" column="30" selection-start-line="111" selection-end-line="112" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -28,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/00_source/preflop_read.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="427">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="e#2#15#0" expanded="true" />
               </folding>
@@ -64,10 +67,11 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="157" />
-    <option name="width" value="1397" />
-    <option name="height" value="1031" />
+    <option name="x" value="459" />
+    <option name="width" value="1398" />
+    <option name="height" value="1032" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -187,22 +191,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="0" width="931" height="687" extended-state="0" />
+    <frame x="306" y="0" width="932" height="688" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" sideWeight="0.50179857" side_tool="true" visible="true" weight="0.25586593" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49820143" visible="true" weight="0.25586593" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49820143" visible="true" weight="0.25558037" />
       <window_info id="Structure" order="1" sideWeight="0.5027933" side_tool="true" weight="0.18189038" />
-      <window_info anchor="bottom" id="Version Control" weight="0.36524823" />
-      <window_info anchor="bottom" id="Python Console" weight="0.32978722" />
-      <window_info anchor="bottom" id="Terminal" weight="0.295858" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.50179857" side_tool="true" weight="0.25586593" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32733813" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3303411" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44244605" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.36524823" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.295858" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32978722" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -227,16 +232,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/00_source/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="111" column="30" selection-start-line="111" selection-end-line="112" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -251,10 +246,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/00_source/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1734">
+          <caret line="111" column="30" selection-start-line="111" selection-end-line="112" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/00_source/preflop_read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="427">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="e#2#15#0" expanded="true" />
           </folding>
